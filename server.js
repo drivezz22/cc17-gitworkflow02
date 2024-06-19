@@ -5,9 +5,13 @@ const errorMiddleware = require("./middlewares/error-middleware");
 const userRouter = require("./routes/user-route");
 const app = express();
 
+app.use("/register", (req, res) => {
+  res.json({ message: "Register...." });
+});
+
 app.use("/users", userRouter);
 app.use(notFound);
-app.use(errorMiddleware)
+app.use(errorMiddleware);
 
 const port = 8000;
 app.listen(port, () => console.log("Server on ", port));
